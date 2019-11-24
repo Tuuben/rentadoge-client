@@ -1,0 +1,45 @@
+/* TEXT*/
+.title {
+  //font-size: var()
+}
+
+.title-2xl {
+  font-size: var(--text-2xl);
+}
+
+.description {
+  font-size: var(--text-m);
+  margin-top: var(--spacing-m);
+}
+
+/* FLEX */
+.flex {
+  display: flex;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.flex-column-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.flex-row-center {
+  display: flex;
+  justify-content: center;
+}
