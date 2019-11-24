@@ -26,15 +26,28 @@ const routes: Routes = [
       import("./user-view/user-view.module").then(m => m.UserViewModule)
   },
   {
-    path: "**",
-    redirectTo: "404"
-  },
-  {
     path: "404",
     loadChildren: () =>
       import("./not-found-view/not-found-view.module").then(
         m => m.NotFoundViewModule
       )
+  },
+  {
+    path: "search",
+    loadChildren: () =>
+      import("./search-view/search-view.module").then(m => m.SearchViewModule)
+  },
+  {
+    path: "product/:id",
+    pathMatch: "full",
+    loadChildren: () =>
+      import("./product-view/product-view.module").then(
+        m => m.ProductViewModule
+      )
+  },
+  {
+    path: "**",
+    redirectTo: "404"
   }
 ];
 
