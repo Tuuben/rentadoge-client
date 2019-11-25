@@ -5,7 +5,7 @@
   --background-color: #fdfaf8;
   --background-color--accent: #ffeadd;
 
-  --black: #2b2b2b;
+  --black: #292626;
 
   --text-white: #fff;
   --text-color: #454545;
@@ -36,5 +36,9 @@
 
   @include screen-large {
     --spacing-container: 9rem;
+  }
+
+  @include screen-xl {
+    --spacing-container: 28rem;
   }
 }

@@ -1,0 +1,22 @@
+.go-to-browse {
+  padding: var(--spacing-m);
+  background: var(--background-color--accent);
+  border-radius: var(--border-radius);
+  position: relative;
+
+  .go-to-browse__button {
+    position: absolute;
+    width: 6.2rem;
+    height: 6.2rem;
+    border-radius: 100%;
+    background: var(--black);
+    color: var(--text-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 0;
+    bottom: 0;
+    transform: translate(20%, 50%);
+    box-shadow: -6px 6px 12px rgba(0, 0, 0, 0.1);
+  }
+}

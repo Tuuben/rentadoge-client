@@ -33,17 +33,18 @@ const routes: Routes = [
       )
   },
   {
-    path: "search",
-    loadChildren: () =>
-      import("./search-view/search-view.module").then(m => m.SearchViewModule)
-  },
-  {
     path: "product/:dogId",
     pathMatch: "full",
     loadChildren: () =>
       import("./product-view/product-view.module").then(
         m => m.ProductViewModule
       )
+  },
+  {
+    path: "browse",
+    pathMatch: "full",
+    loadChildren: () =>
+      import("./browse-view/browse-view.module").then(m => m.BrowseViewModule)
   },
   {
     path: "**",
