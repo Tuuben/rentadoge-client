@@ -1,3 +1,21 @@
 <section class="section">
-  about products
+  <h2 class="title-m">Our breeds</h2>
+  <div #carousel class="breed-carousel__container">
+    <div class="breed-carousel__container-item" *ngFor="let breed of breedsRes">
+      <!-- <img [src]="breed.imgURL" class="container-item__image" alt="" /> -->
+      <app-image
+        [xOffset]="xOffset"
+        [src]="breed.imgURL"
+        class="container-item__image"
+      ></app-image>
+      <div class="container-item__content">
+        <h2 class="container-item__title">
+          {{ breed.name }}
+        </h2>
+        <p class="container-item__description">
+          {{ breed.description }}
+        </p>
+      </div>
+    </div>
+  </div>
 </section>

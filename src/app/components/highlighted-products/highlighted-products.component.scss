@@ -26,7 +26,7 @@
     top: 12px;
     right: 12px;
     z-index: 500;
-    text-shadow: 0px 5px 16px rgba(0, 0, 0, 0.2);
+    text-shadow: var(--text-shadow);
     font-weight: 600;
     //color: var(--text-white);
   }
@@ -45,7 +45,7 @@
     font-weight: 600;
     color: var(--text-white);
     z-index: 500;
-    text-shadow: 0px 5px 16px rgba(0, 0, 0, 0.2);
+    text-shadow: var(--text-shadow);
     font-size: var(--text-m);
   }
 }
