@@ -38,7 +38,7 @@ const routes: Routes = [
       import("./search-view/search-view.module").then(m => m.SearchViewModule)
   },
   {
-    path: "product/:id",
+    path: "product/:dogId",
     pathMatch: "full",
     loadChildren: () =>
       import("./product-view/product-view.module").then(

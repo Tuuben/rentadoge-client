@@ -82,4 +82,8 @@ export class DogService {
   getDogs(max: number) {
     return dogList;
   }
+
+  getDog(dogId: string) {
+    return dogList[0];
+  }
 }

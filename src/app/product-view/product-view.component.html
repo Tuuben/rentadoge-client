@@ -1,1 +1,21 @@
-<p>product-view works!</p>
+<ng-container *ngIf="dogRes">
+  <a [routerLink]="['../../']" class="button">Go back</a>
+  <section class="header">
+    <div class="header__image-container">
+      <img [src]="dogRes.imgURL" alt="" />
+    </div>
+    <h2 class="title">{{ dogRes.name }}</h2>
+  </section>
+
+  <section class="content">
+    {{ dogRes.description }}
+  </section>
+
+  <section class="map">
+    {{ dogRes.location?.streetAdress }}
+  </section>
+
+  <section class="actions">
+    <button class="button">Rent dog {{ dogRes.price?.amount }}</button>
+  </section>
+</ng-container>

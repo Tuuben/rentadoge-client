@@ -48,6 +48,16 @@
   justify-content: center;
 }
 
+.button {
+  padding: var(--spacing-xs) var(--spacing-s);
+  font-size: var(--text-m);
+  font-weight: 600;
+  font-weight: uppercase;
+  text-transform: uppercase;
+  border: 0;
+  letter-spacing: 0.1rem;
+}
+
 .loading__container {
   background: var(--background-color--accent);
   position: relative;
