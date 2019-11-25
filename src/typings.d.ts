@@ -6,9 +6,14 @@ interface Dog {
   breedId?: string;
   breed?: Breed;
   rating?: number;
-  location?: Location;
   priceId?: string;
   price: Price;
+  streetAdress?: string;
+  city?: string;
+  postCode?: string;
+  country?: string;
+  isBooked?: boolean;
+  isBookedByUser?: boolean;
 }
 
 interface Breed {
@@ -21,7 +26,10 @@ interface Breed {
 interface User {
   id: string;
   name?: string;
-  location?: Location;
+  streetAdress?: string;
+  city?: string;
+  postCode?: string;
+  country?: string;
 }
 
 interface Ratings {
@@ -29,13 +37,6 @@ interface Ratings {
   creatorId?: string;
   ratedId?: string;
   rating: number;
-}
-
-interface Location {
-  streetAdress?: string;
-  city?: string;
-  country?: string;
-  postCode?: string;
 }
 
 interface Price {

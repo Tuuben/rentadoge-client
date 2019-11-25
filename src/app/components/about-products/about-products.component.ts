@@ -6,7 +6,8 @@ import {
   OnInit,
   ViewChild
 } from "@angular/core";
-import { Subscription } from "rxjs";
+import { ApolloQueryResult } from "apollo-client";
+import { Observable, Subscription } from "rxjs";
 import { tap } from "rxjs/operators";
 import { DogService } from "src/app/core/dog.service";
 import { DomService } from "src/app/core/dom.service";
@@ -22,15 +23,14 @@ export class AboutProductsComponent
     HTMLDivElement
   >;
 
-  breedsRes: Breed[];
+  breedsQueryRes: Observable<ApolloQueryResult<{ breeds: Breed[] }>>;
   xOffset: number;
-
   scrollSub: Subscription;
 
   constructor(private dogService: DogService, private domService: DomService) {}
 
   ngOnInit() {
-    this.breedsRes = this.dogService.getBreeds();
+    this.breedsQueryRes = this.dogService.getBreeds().valueChanges;
   }
 
   ngAfterViewInit() {

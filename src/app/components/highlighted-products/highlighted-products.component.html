@@ -2,21 +2,23 @@
   <h2 class="title-m">Most popular friends!</h2>
 
   <div class="highlight__carousel" #carousel>
-    <a
-      class="highlight__carousel-item"
-      *ngFor="let dog of dogsRes"
-      [routerLink]="['/', 'product', dog.id]"
-    >
-      <div class="item__rating">Rating {{ dog.rating }}</div>
-      <app-image [xOffset]="xOffset" [src]="dog.imgURL"></app-image>
-      <h3 class="item__name">{{ dog.name }}</h3>
-    </a>
+    <ng-container *ngIf="dogsQueryRes | async as dogsRes">
+      <a
+        class="highlight__carousel-item"
+        *ngFor="let dog of dogsRes.data?.dogs"
+        [routerLink]="['/', 'product', dog.id]"
+      >
+        <div class="item__rating">Rating {{ dog.rating }}</div>
+        <app-image [xOffset]="xOffset" [src]="dog.imgURL"></app-image>
+        <h3 class="item__name">{{ dog.name }}</h3>
+      </a>
 
-    <ng-container *ngIf="!dogsRes.length">
-      <div
-        class="highlight__carousel-item loading__container"
-        *ngFor="let mockItem of [1, 2, 3, 4, 5, 6, 7]"
-      ></div>
+      <ng-container *ngIf="dogsRes.loading">
+        <div
+          class="highlight__carousel-item loading__container"
+          *ngFor="let mockItem of [1, 2, 3, 4, 5, 6, 7]"
+        ></div>
+      </ng-container>
     </ng-container>
   </div>
 </section>

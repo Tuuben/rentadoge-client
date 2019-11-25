@@ -1,4 +1,6 @@
 import { Injectable } from "@angular/core";
+import { Apollo } from "apollo-angular";
+import gql from "graphql-tag";
 
 const dogList = [
   {
@@ -65,14 +67,14 @@ const breedList = [
 
 @Injectable()
 export class DogService {
-  constructor() {}
+  constructor(private apollo: Apollo) {}
 
   getHighlightedDogs() {
-    return dogList;
+    return this.dogsQuery();
   }
 
   getBreeds() {
-    return breedList;
+    return this.breedsQuery();
   }
 
   searchDogs(query: string, breedId?: string) {
@@ -85,5 +87,39 @@ export class DogService {
 
   getDog(dogId: string) {
     return dogList[0];
+  }
+
+  dogsQuery() {
+    return this.apollo.watchQuery<{ dogs: Dog[] }>({
+      query: gql`
+        query DogsQuery {
+          dogs {
+            id
+            name
+            imgURL
+            description
+            isBookedByUser
+            isBooked
+          }
+        }
+      `,
+      fetchPolicy: "cache-and-network"
+    });
+  }
+
+  breedsQuery() {
+    return this.apollo.watchQuery<{ breeds: Breed[] }>({
+      query: gql`
+        query BreedQuery {
+          breeds {
+            id
+            name
+            description
+            imgURL
+          }
+        }
+      `,
+      fetchPolicy: "cache-and-network"
+    });
   }
 }

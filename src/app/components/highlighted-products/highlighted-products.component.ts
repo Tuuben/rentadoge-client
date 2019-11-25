@@ -6,7 +6,8 @@ import {
   OnInit,
   ViewChild
 } from "@angular/core";
-import { Subscription } from "rxjs";
+import { ApolloQueryResult } from "apollo-client";
+import { Observable, Subscription } from "rxjs";
 import { tap } from "rxjs/operators";
 import { DogService } from "src/app/core/dog.service";
 import { DomService } from "src/app/core/dom.service";
@@ -18,21 +19,18 @@ import { DomService } from "src/app/core/dom.service";
 })
 export class HighlightedProductsComponent
   implements OnInit, AfterViewInit, OnDestroy {
-  src =
-    "https://www.medicalnewstoday.com/content/images/articles/322/322868/golden-retriever-puppy.jpg";
-
   @ViewChild("carousel", { static: false }) carousel: ElementRef<
     HTMLDivElement
   >;
 
   xOffset = 0;
-  dogsRes: Dog[];
+  dogsQueryRes: Observable<ApolloQueryResult<{ dogs: Dog[] }>>;
   scrollSub: Subscription;
 
   constructor(private dogService: DogService, private domService: DomService) {}
 
   ngOnInit() {
-    this.dogsRes = this.dogService.getHighlightedDogs();
+    this.dogsQueryRes = this.dogService.getHighlightedDogs().valueChanges;
   }
 
   ngAfterViewInit() {

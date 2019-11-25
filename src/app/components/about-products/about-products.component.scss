@@ -26,7 +26,7 @@
     display: flex;
     flex-direction: column;
     height: 100%;
-    justify-content: center;
+    justify-content: flex-end;
   }
 
   .container-item__title {
@@ -40,7 +40,6 @@
     color: var(--text-white);
     white-space: normal;
     margin-top: var(--spacing-s);
-    font-size: var(--text-m);
   }
 
   .container-item__image {
