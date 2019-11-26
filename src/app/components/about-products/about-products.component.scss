@@ -1,3 +1,9 @@
+@import "media-queries";
+
+.about__title {
+  font-size: var(--text-m);
+}
+
 .breed-carousel__container {
   margin-top: var(--spacing-m);
   overflow: scroll hidden;
@@ -52,5 +58,11 @@
     height: 100%;
     opacity: 0.33;
     object-fit: cover;
+  }
+}
+
+@include screen-large {
+  .about__title {
+    font-size: var(--text-xl);
   }
 }
