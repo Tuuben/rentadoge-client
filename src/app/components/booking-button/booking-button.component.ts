@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { BookingService } from "src/app/core/booking.service";
 
 @Component({
@@ -8,6 +8,7 @@ import { BookingService } from "src/app/core/booking.service";
 })
 export class BookingButtonComponent implements OnInit {
   @Input() dog: Dog;
+  @Output() unbooked = new EventEmitter();
 
   buttonStatus: BookingStatus;
   loading: boolean;
@@ -24,6 +25,7 @@ export class BookingButtonComponent implements OnInit {
     this.bookingService.endBooking(id).then(res => {
       if (res) {
         this.buttonStatus = "open";
+        this.unbooked.emit();
       }
       this.loading = false;
     });

@@ -25,13 +25,14 @@ interface Breed {
   imgURL?: string;
 }
 
-interface User {
+interface AppUser {
   id: string;
   name?: string;
   streetAdress?: string;
   city?: string;
   postCode?: string;
   country?: string;
+  bookedDog?: Dog;
 }
 
 interface Ratings {

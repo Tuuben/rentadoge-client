@@ -66,3 +66,24 @@
     font-size: var(--text-xl);
   }
 }
+
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: var(--border-radius);
+  background: var(--background-color--accent);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--button-color);
+  border-radius: var(--border-radius);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  opacity: 0.8;
+}

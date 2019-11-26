@@ -1,0 +1,20 @@
+<ng-container *ngIf="usersDogRes | async as dogRes">
+  <ng-container *ngIf="dogRes.data?.dog as dog">
+    <div class="container" *ngIf="!hidden">
+      <div></div>
+      <div class="image__container">
+        <img [src]="dog.imgURL" alt="" />
+      </div>
+      <div class="info__column">
+        <p>Currently renting</p>
+        <h3 class="title">{{ dog.name }}</h3>
+        <div class="actions">
+          <app-booking-button
+            [dog]="dog"
+            (unbooked)="hide()"
+          ></app-booking-button>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</ng-container>

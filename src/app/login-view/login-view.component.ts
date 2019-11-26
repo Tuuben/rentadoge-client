@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { environment } from "src/environments/environment";
 import { AuthenticationService } from "../authentication.service";
 
 @Component({
@@ -12,6 +13,6 @@ export class LoginViewComponent implements OnInit {
   ngOnInit() {}
 
   signIn(email: string, password: string) {
-    this.authService.signIn(email, password);
+    this.authService.signIn(environment.tempEmail, environment.tempPassword);
   }
 }

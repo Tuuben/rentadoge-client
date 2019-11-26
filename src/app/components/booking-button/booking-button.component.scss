@@ -9,6 +9,7 @@
   letter-spacing: var(--button-letter-spacing);
   color: var(--text-white);
   transition: background 0.4s;
+  white-space: nowrap;
   cursor: pointer;
 
   &:focus {

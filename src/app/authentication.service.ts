@@ -26,4 +26,8 @@ export class AuthenticationService {
       )
       .toPromise();
   }
+
+  getUser() {
+    return this.fireAuth.user;
+  }
 }

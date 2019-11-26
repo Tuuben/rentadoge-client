@@ -6,6 +6,7 @@ import { HeroModule } from "../components/hero/hero.module";
 import { HighlightedProductsModule } from "../components/highlighted-products/highlighted-products.module";
 import { LayoutModule } from "../components/layout/layout.module";
 import { MobileNavigationModule } from "../components/mobile-navigation/mobile-navigation.module";
+import { UserBookingModule } from "../components/user-booking/user-booking.module";
 import { DiscoverViewRoutingModule } from "./discover-view-routing.module";
 import { DiscoverViewComponent } from "./discover-view.component";
 
@@ -19,6 +20,7 @@ import { DiscoverViewComponent } from "./discover-view.component";
     HighlightedProductsModule,
     AboutProductsModule,
     MobileNavigationModule,
+    UserBookingModule,
     MatIconModule
   ]
 })
