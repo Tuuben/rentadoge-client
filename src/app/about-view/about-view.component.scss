@@ -1,0 +1,32 @@
+@import "media-queries";
+
+.image-container {
+  width: 100%;
+  height: 20rem;
+  margin-bottom: var(--spacing-m);
+
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+  }
+}
+
+@include screen-large {
+  .image-container {
+    width: 32rem;
+    height: 32rem;
+    margin: 0;
+    margin-right: var(--spacing-m);
+    display: block;
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+  }
+  .content {
+    flex: 1;
+  }
+}

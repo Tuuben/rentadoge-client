@@ -1,0 +1,18 @@
+<app-single-view-nav></app-single-view-nav>
+<app-layout>
+  <ng-container *ngIf="breedQueryRes | async as breedRes">
+    <ng-container *ngIf="breedRes.data?.breed as breed">
+      <section class="section">
+        <div class="container">
+          <div class="image-container">
+            <img [src]="breed.imgURL" alt="" />
+          </div>
+          <div class="content">
+            <h1 class="title-2xl">{{ breed.name }}</h1>
+            <p class="description">{{ breed.description }}</p>
+          </div>
+        </div>
+      </section>
+    </ng-container>
+  </ng-container>
+</app-layout>

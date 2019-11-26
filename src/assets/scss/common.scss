@@ -67,6 +67,22 @@
   color: var(--text-white);
 }
 
+.back-button {
+  margin-left: var(--spacing-m);
+  transition: margin 0.2s;
+
+  &:hover {
+    margin-left: calc(var(--spacing-m) - 0.5rem);
+  }
+
+  mat-icon {
+    font-size: var(--text-xl);
+    width: var(--text-xl);
+    height: var(--text-xl);
+    color: var(--text-title-color);
+  }
+}
+
 .loading__container {
   background: var(--background-color--accent);
   position: relative;

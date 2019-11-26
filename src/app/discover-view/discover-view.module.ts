@@ -1,5 +1,6 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
+import { MatIconModule } from "@angular/material/icon";
 import { AboutProductsModule } from "../components/about-products/about-products.module";
 import { HeroModule } from "../components/hero/hero.module";
 import { HighlightedProductsModule } from "../components/highlighted-products/highlighted-products.module";
@@ -17,7 +18,8 @@ import { DiscoverViewComponent } from "./discover-view.component";
     HeroModule,
     HighlightedProductsModule,
     AboutProductsModule,
-    MobileNavigationModule
+    MobileNavigationModule,
+    MatIconModule
   ]
 })
 export class DiscoverViewModule {}

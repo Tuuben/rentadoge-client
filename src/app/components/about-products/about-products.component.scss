@@ -3,6 +3,7 @@
   overflow: scroll hidden;
   white-space: nowrap;
   scroll-snap-type: x mandatory;
+  z-index: 0;
 }
 
 .breed-carousel__container-item {

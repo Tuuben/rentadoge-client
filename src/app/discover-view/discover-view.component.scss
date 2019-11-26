@@ -18,5 +18,17 @@
     bottom: 0;
     transform: translate(20%, 50%);
     box-shadow: -6px 6px 12px rgba(0, 0, 0, 0.1);
+    transition: right 0.2s;
+
+    &:hover {
+      right: -0.5rem;
+    }
+
+    mat-icon {
+      color: var(--text-white) !important;
+      font-size: var(--text-m);
+      width: var(--text-m);
+      height: var(--text-m);
+    }
   }
 }

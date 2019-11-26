@@ -13,6 +13,7 @@ import { AppHttpInterceptor } from "./app-http-interceptor";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { GraphQLModule } from "./graphql.module";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,7 +26,8 @@ import { GraphQLModule } from "./graphql.module";
     AngularFireModule.initializeApp(environment.firebase),
     GraphQLModule,
     ApolloModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [
     {

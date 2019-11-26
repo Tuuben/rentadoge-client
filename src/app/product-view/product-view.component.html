@@ -1,6 +1,5 @@
-<nav class="product-nav">
-  <a [routerLink]="['../../']" class="button">Go back</a>
-</nav>
+<app-single-view-nav></app-single-view-nav>
+
 <app-layout>
   <ng-container *ngIf="dogQueryRes | async as dogRes">
     <ng-container *ngIf="dogRes.data?.dog as dog">

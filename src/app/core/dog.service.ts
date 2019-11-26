@@ -88,7 +88,7 @@ export class DogService {
   getBreeds() {
     return this.apollo.watchQuery<{ breeds: Breed[] }>({
       query: gql`
-        query BreedQuery {
+        query BreedsQuery {
           breeds {
             id
             name
@@ -98,6 +98,23 @@ export class DogService {
         }
       `,
       fetchPolicy: "cache-and-network"
+    });
+  }
+
+  getBreed(breedId: string) {
+    return this.apollo.watchQuery<{ breed: Breed }>({
+      query: gql`
+        query BreedQuery($breedId: String!) {
+          breed(breedId: $breedId) {
+            id
+            name
+            description
+            imgURL
+          }
+        }
+      `,
+      fetchPolicy: "cache-and-network",
+      variables: { breedId }
     });
   }
 

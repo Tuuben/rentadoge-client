@@ -1,7 +1,7 @@
 <button
   class="bookings-button taken"
   *ngIf="buttonStatus === 'booked'"
-  attr.disabled="true"
+  disabled
 >
   Already reserved
 </button>
@@ -11,6 +11,7 @@
   class="bookings-button return"
   (click)="returnDog()"
   *ngIf="buttonStatus === 'user-booked'"
+  [disabled]="loading"
 >
   Return dog to owner
 </button>
@@ -20,6 +21,7 @@
   class="bookings-button"
   *ngIf="buttonStatus === 'open'"
   (click)="bookDog()"
+  [disabled]="loading"
 >
   Book this dogo
 </button>

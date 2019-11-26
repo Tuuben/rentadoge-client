@@ -15,7 +15,6 @@ export class BookingButtonComponent implements OnInit {
   constructor(private bookingService: BookingService) {}
 
   ngOnInit() {
-    console.log(this.dog);
     this.buttonStatus = (this.dog && this.dog.bookingStatus) || "open";
   }
 

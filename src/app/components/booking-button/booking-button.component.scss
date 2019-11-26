@@ -16,7 +16,7 @@
     outline: 0;
   }
 
-  &:hover {
+  &:hover:not(.loading) {
     opacity: 0.8;
   }
 }
@@ -27,6 +27,6 @@
 
 .loading {
   cursor: initial;
-  opacity: 0.4;
+  opacity: 0.5;
   background: var(--button-color);
 }

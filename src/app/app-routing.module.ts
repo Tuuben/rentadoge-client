@@ -47,6 +47,12 @@ const routes: Routes = [
       import("./browse-view/browse-view.module").then(m => m.BrowseViewModule)
   },
   {
+    path: "about/:breedId",
+    pathMatch: "full",
+    loadChildren: () =>
+      import("./about-view/about-view.module").then(m => m.AboutViewModule)
+  },
+  {
     path: "**",
     redirectTo: "404"
   }
