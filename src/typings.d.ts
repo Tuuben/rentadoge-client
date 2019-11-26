@@ -1,3 +1,5 @@
+type BookingStatus = "booked" | "open" | "user-booked" | "pending-return";
+
 interface Dog {
   id: string;
   name?: string;
@@ -7,7 +9,7 @@ interface Dog {
   breed?: Breed;
   rating?: number;
   priceId?: string;
-  price: Price;
+  bookingStatus?: BookingStatus;
   streetAdress?: string;
   city?: string;
   postCode?: string;
@@ -39,8 +41,14 @@ interface Ratings {
   rating: number;
 }
 
-interface Price {
+interface Booking {
   id: string;
-  currency: "EUR";
-  amount: 24.55;
+  userId: string;
+  dogId: string;
+  createdAt?: Date;
+  updatedAt?: Date;
+  expiresAt?: Date;
+  pendingReturn?: boolean;
+  returnedAt?: Date;
+  active?: boolean;
 }

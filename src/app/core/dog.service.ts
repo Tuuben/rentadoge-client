@@ -70,26 +70,6 @@ export class DogService {
   constructor(private apollo: Apollo) {}
 
   getHighlightedDogs() {
-    return this.dogsQuery();
-  }
-
-  getBreeds() {
-    return this.breedsQuery();
-  }
-
-  searchDogs(query: string, breedId?: string) {
-    return dogList;
-  }
-
-  getDogs(max: number) {
-    return dogList;
-  }
-
-  getDog(dogId: string) {
-    return dogList[0];
-  }
-
-  dogsQuery() {
     return this.apollo.watchQuery<{ dogs: Dog[] }>({
       query: gql`
         query DogsQuery {
@@ -98,8 +78,6 @@ export class DogService {
             name
             imgURL
             description
-            isBookedByUser
-            isBooked
           }
         }
       `,
@@ -107,7 +85,7 @@ export class DogService {
     });
   }
 
-  breedsQuery() {
+  getBreeds() {
     return this.apollo.watchQuery<{ breeds: Breed[] }>({
       query: gql`
         query BreedQuery {
@@ -119,6 +97,44 @@ export class DogService {
           }
         }
       `,
+      fetchPolicy: "cache-and-network"
+    });
+  }
+
+  searchDogs(query: string, breedId?: string) {
+    return dogList;
+  }
+
+  getDogs(max: number) {
+    return this.apollo.watchQuery<{ dogs: Dog[] }>({
+      query: gql`
+        query DogsQuery {
+          dogs {
+            id
+            name
+            imgURL
+            description
+          }
+        }
+      `,
+      fetchPolicy: "cache-and-network"
+    });
+  }
+
+  getDog(dogId: string) {
+    return this.apollo.watchQuery<{ dog: Dog }>({
+      query: gql`
+        query DogQuery($dogId: String!) {
+          dog(dogId: $dogId) {
+            id
+            name
+            imgURL
+            description
+            bookingStatus
+          }
+        }
+      `,
+      variables: { dogId },
       fetchPolicy: "cache-and-network"
     });
   }

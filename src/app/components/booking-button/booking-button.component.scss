@@ -1,0 +1,32 @@
+.bookings-button {
+  padding: var(--spacing-s) var(--spacing-m);
+  background: var(--button-color--action);
+  font-weight: 600;
+  text-transform: uppercase;
+  border-radius: var(--border-radius);
+  border: 0;
+  box-shadow: var(--text-shadow);
+  letter-spacing: var(--button-letter-spacing);
+  color: var(--text-white);
+  transition: background 0.4s;
+  cursor: pointer;
+
+  &:focus {
+    box-shadow: var(--text-shadow--strong);
+    outline: 0;
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.return {
+  background: var(--button-color);
+}
+
+.loading {
+  cursor: initial;
+  opacity: 0.4;
+  background: var(--button-color);
+}

@@ -1,21 +1,28 @@
-<ng-container *ngIf="dogRes">
+<nav class="product-nav">
   <a [routerLink]="['../../']" class="button">Go back</a>
-  <section class="header">
-    <div class="header__image-container">
-      <img [src]="dogRes.imgURL" alt="" />
-    </div>
-    <h2 class="title">{{ dogRes.name }}</h2>
-  </section>
+</nav>
+<app-layout>
+  <ng-container *ngIf="dogQueryRes | async as dogRes">
+    <ng-container *ngIf="dogRes.data?.dog as dog">
+      <section class="product-view__container">
+        <div class="content">
+          <div class="header-image__container">
+            <img [src]="dog.imgURL" alt="" />
+          </div>
 
-  <section class="content">
-    {{ dogRes.description }}
-  </section>
+          <div class="header-info__container">
+            <h2 class="title">{{ dog.name }}</h2>
+            <p class="description">{{ dog.description }}</p>
+            <div class="actions">
+              <app-booking-button [dog]="dog"></app-booking-button>
+            </div>
+          </div>
+        </div>
+      </section>
 
-  <section class="map">
-    {{ dogRes.location?.streetAdress }}
-  </section>
-
-  <section class="actions">
-    <button class="button">Rent dog {{ dogRes.price?.amount }}</button>
-  </section>
-</ng-container>
+      <!-- <section class="map section">
+        {{ dog.streetAdress }}
+      </section> -->
+    </ng-container>
+  </ng-container>
+</app-layout>
