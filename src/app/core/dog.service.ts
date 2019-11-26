@@ -56,7 +56,7 @@ export class DogService {
   }
 
   searchDogs(query: string, breedId?: string) {
-    return dogList;
+    return [];
   }
 
   getDogs(max: number) {
@@ -89,7 +89,7 @@ export class DogService {
         }
       `,
       variables: { dogId },
-      fetchPolicy: "cache-and-network"
+      fetchPolicy: "network-only"
     });
   }
 

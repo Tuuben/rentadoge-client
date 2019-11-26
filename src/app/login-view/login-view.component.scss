@@ -1,0 +1,50 @@
+@import "media-queries";
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin-top: var(--spacing-m);
+}
+
+input {
+  padding: var(--spacing-s);
+  border-radius: var(--border-radius);
+  border: 0;
+  background: var(--background-color--accent);
+
+  &:not(:last-child) {
+    margin-bottom: var(--spacing-s);
+  }
+}
+
+.actions {
+  margin-top: var(--spacing-s);
+  display: flex;
+  flex-direction: column;
+
+  .button {
+    margin-bottom: var(--spacing-s);
+  }
+}
+
+.link {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.disabled {
+  cursor: initial;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+@include screen-large {
+  .actions {
+    align-items: flex-start;
+  }
+
+  .login__container,
+  .register__container {
+    padding: 0 var(--spacing-section);
+  }
+}

@@ -1,21 +1,66 @@
-<form action="">
-  login
-  <input type="text" placeholder="email" />
-  <input type="password" placeholder="password" />
-</form>
-<button (click)="signIn('123', '123')">
-  login
-</button>
+<app-layout>
+  <section class="section">
+    <div class="login__container" *ngIf="showLogin">
+      <h1 class="title">Please login</h1>
+      <form [formGroup]="loginGroup" action="">
+        <input formControlName="email" type="text" placeholder="email" />
+        <input
+          formControlName="password"
+          type="password"
+          placeholder="password"
+        />
+      </form>
+      <button></button>
+      <div class="actions">
+        <button
+          [disabled]="!loginGroup.valid"
+          [ngClass]="{ disabled: !loginGroup.valid }"
+          class="button button--primary"
+          (click)="signIn()"
+        >
+          Sign in
+        </button>
+        <a class="link" (click)="toggleRegister()"
+          >Don't have an account yet?</a
+        >
+      </div>
+    </div>
 
-<br />
-===============================
-<br />
+    <div class="register__container" *ngIf="!showLogin">
+      <h1 class="title">Register</h1>
+      <form [formGroup]="registerCredentialsGroup" action="">
+        <input formControlName="email" type="email" placeholder="Email" />
+        <input
+          formControlName="password"
+          type="password"
+          placeholder="Password"
+        />
+      </form>
 
-<form action="">
-  register
-  <input type="text" placeholder="Email" />
-  <input type="text" placeholder="Password" />
-  <input type="text" placeholder="Street adress" />
-  <input type="text" placeholder="City" />
-  <input type="text" placeholder="Country" />
-</form>
+      <form [formGroup]="registerGroup" action="">
+        <input formControlName="name" type="text" placeholder="Fullname" />
+        <input
+          formControlName="streetAdress"
+          type="text"
+          placeholder="Street adress"
+        />
+        <input formControlName="city" type="text" placeholder="City" />
+        <input formControlName="country" type="text" placeholder="Country" />
+      </form>
+
+      <div class="actions">
+        <button
+          [disabled]="!registerCredentialsGroup.valid || !registerGroup.valid"
+          [ngClass]="{
+            disabled: !registerCredentialsGroup.valid || !registerGroup.valid
+          }"
+          class="button button--primary"
+          (click)="register()"
+        >
+          Register
+        </button>
+        <a class="link" (click)="toggleRegister()">Already have a account?</a>
+      </div>
+    </div>
+  </section>
+</app-layout>

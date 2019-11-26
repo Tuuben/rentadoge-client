@@ -1,5 +1,9 @@
 import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { first, map } from "rxjs/operators";
 import { BookingService } from "src/app/core/booking.service";
+import { UserService } from "./../../core/user.service";
+
+type ButtonStatus = BookingStatus | "user-already-booked";
 
 @Component({
   selector: "app-booking-button",
@@ -10,13 +14,30 @@ export class BookingButtonComponent implements OnInit {
   @Input() dog: Dog;
   @Output() unbooked = new EventEmitter();
 
-  buttonStatus: BookingStatus;
+  buttonStatus: ButtonStatus;
   loading: boolean;
 
-  constructor(private bookingService: BookingService) {}
+  constructor(
+    private bookingService: BookingService,
+    private userService: UserService
+  ) {}
 
   ngOnInit() {
-    this.buttonStatus = (this.dog && this.dog.bookingStatus) || "open";
+    this.loading = true;
+    this.userService
+      .getUser()
+      .pipe(
+        first(),
+        map(res => {
+          this.loading = false;
+          if (this.hasBookedAnotherDog(res)) {
+            this.buttonStatus = "user-already-booked";
+          } else {
+            this.buttonStatus = (this.dog && this.dog.bookingStatus) || "open";
+          }
+        })
+      )
+      .toPromise();
   }
 
   returnDog() {
@@ -41,5 +62,15 @@ export class BookingButtonComponent implements OnInit {
 
       this.loading = false;
     });
+  }
+
+  hasBookedAnotherDog(res) {
+    if (!res && !res.data) {
+      return false;
+    }
+
+    const { user } = res.data;
+
+    return user.bookedDog && user.bookedDog.id !== this.dog.id;
   }
 }

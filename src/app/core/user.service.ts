@@ -21,9 +21,25 @@ export class UserService {
             }
           }
         }
-      `
+      `,
+      fetchPolicy: "network-only"
     });
   }
 
-  createUser() {}
+  createUser(data: any) {
+    /* Pleb guard */
+    delete data.email;
+    delete data.password;
+
+    return this.apollo
+      .mutate<{ user: AppUser }>({
+        mutation: gql`
+          mutation UpdateUser($data: UserDataInput!) {
+            updateUser(data: $data)
+          }
+        `,
+        variables: { data }
+      })
+      .toPromise();
+  }
 }

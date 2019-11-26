@@ -67,6 +67,15 @@
   }
 }
 
+@include screen-medium {
+  .breed-carousel__container {
+    -webkit-overflow-scrolling: touch;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
 ::-webkit-scrollbar {
   width: 20px;
 }

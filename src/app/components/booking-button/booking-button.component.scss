@@ -17,13 +17,19 @@
     outline: 0;
   }
 
-  &:hover:not(.loading) {
+  &:hover:not(.loading, .taken) {
     opacity: 0.8;
   }
 }
 
 .return {
   background: var(--button-color);
+}
+
+.taken {
+  background: var(--button-color);
+  opacity: 0.5;
+  cursor: initial;
 }
 
 .loading {

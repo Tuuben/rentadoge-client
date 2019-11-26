@@ -7,6 +7,14 @@
 </button>
 
 <button
+  class="bookings-button taken"
+  *ngIf="buttonStatus === 'user-already-booked'"
+  disabled
+>
+  Don't get greedy
+</button>
+
+<button
   [ngClass]="{ loading: loading }"
   class="bookings-button return"
   (click)="returnDog()"
