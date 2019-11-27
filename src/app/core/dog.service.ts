@@ -86,7 +86,7 @@ export class DogService {
             imgURL
             description
             rating
-            bookingStatus
+            bookingState
           }
         }
       `,
@@ -103,7 +103,7 @@ export class DogService {
             id
             name
             imgURL
-            bookingStatus
+            bookingState
           }
         }
       `,
@@ -113,7 +113,7 @@ export class DogService {
 
   incremenetRating(dogId: string, rating?: number) {
     return this.apollo
-      .mutate<{ dog: Dog }>({
+      .mutate({
         mutation: gql`
           mutation IncrementRatingMutation($dogId: String!) {
             incrementRating(dogId: $dogId) {

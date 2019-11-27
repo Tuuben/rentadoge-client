@@ -15,10 +15,10 @@
     object-fit: cover;
     border-radius: var(--border-radius);
   }
+}
 
-  .header-info__title {
-    font-size: var(--text-xl);
-  }
+.header-info__title {
+  font-size: var(--text-xl);
 }
 
 .content {
@@ -74,12 +74,12 @@
     margin-right: var(--spacing-2xl);
   }
 
-  .header-info__title {
-    font-size: var(--text-2xl);
-  }
-
   .header-info__container {
     flex: 1;
+  }
+
+  .header-info__title {
+    font-size: var(--text-2xl);
   }
 
   .product-view__container {

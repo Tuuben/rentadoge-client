@@ -9,14 +9,23 @@ export class BookingService {
 
   bookDog(dogId: string) {
     return this.apollo
-      .mutate<{ booking: Booking }>({
+      .mutate({
         mutation: gql`
           mutation CreateNewBooking($dogId: String!) {
-            booking: createBooking(dogId: $dogId) {
+            dog: createBooking(dogId: $dogId) {
               id
+              bookingState
             }
           }
         `,
+        optimisticResponse: {
+          __typename: "Mutation",
+          dog: {
+            __typename: "Dog",
+            id: dogId,
+            bookingState: "return"
+          }
+        },
         variables: { dogId }
       })
       .pipe(first())
@@ -28,9 +37,20 @@ export class BookingService {
       .mutate({
         mutation: gql`
           mutation EndCurrentBooking($dogId: String!) {
-            endBooking(dogId: $dogId)
+            endBooking(dogId: $dogId) {
+              id
+              bookingState
+            }
           }
         `,
+        optimisticResponse: {
+          __typename: "Mutation",
+          endBooking: {
+            __typename: "Dog",
+            id: dogId,
+            bookingState: "available"
+          }
+        },
         variables: { dogId }
       })
       .pipe(

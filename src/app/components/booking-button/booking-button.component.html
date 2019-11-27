@@ -1,6 +1,6 @@
 <button
   class="bookings-button taken"
-  *ngIf="buttonStatus === 'booked'"
+  *ngIf="dog.bookingState === 'unavailable'"
   disabled
 >
   Already reserved
@@ -8,7 +8,7 @@
 
 <button
   class="bookings-button taken"
-  *ngIf="buttonStatus === 'user-already-booked'"
+  *ngIf="dog.bookingState === 'other-booking'"
   disabled
 >
   Don't get greedy
@@ -18,7 +18,7 @@
   [ngClass]="{ loading: loading }"
   class="bookings-button return"
   (click)="returnDog()"
-  *ngIf="buttonStatus === 'user-booked'"
+  *ngIf="dog.bookingState === 'return'"
   [disabled]="loading"
 >
   Return dog to owner
@@ -27,9 +27,18 @@
 <button
   [ngClass]="{ loading: loading }"
   class="bookings-button"
-  *ngIf="buttonStatus === 'open'"
+  *ngIf="dog.bookingState === 'available'"
   (click)="bookDog()"
   [disabled]="loading"
 >
   Book this dogo
 </button>
+
+<a
+  *ngIf="dog.bookingState === 'sign-in'"
+  [ngClass]="{ loading: loading }"
+  class="bookings-button return"
+  [routerLink]="['/', 'login']"
+>
+  Sign in to book
+</a>

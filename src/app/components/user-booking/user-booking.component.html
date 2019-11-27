@@ -1,6 +1,6 @@
 <ng-container *ngIf="usersDogRes | async as dogRes">
   <ng-container *ngIf="dogRes.data?.dog as dog">
-    <div class="container" *ngIf="!hidden">
+    <div class="container" *ngIf="!hidden && dog.bookingState === 'return'">
       <div></div>
       <div class="image__container">
         <img [src]="dog.imgURL" alt="" />

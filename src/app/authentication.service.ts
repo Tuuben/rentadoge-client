@@ -22,7 +22,7 @@ export class AuthenticationService {
     return this.fireAuth.user
       .pipe(
         first(),
-        map(user => user.getIdToken())
+        map(user => !!user && user.getIdToken())
       )
       .toPromise();
   }

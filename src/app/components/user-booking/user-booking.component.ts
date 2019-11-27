@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ApolloQueryResult } from "apollo-client";
 import { Observable } from "rxjs";
-import { tap } from "rxjs/operators";
 import { DogService } from "../../core/dog.service";
 
 @Component({
@@ -17,9 +16,7 @@ export class UserBookingComponent implements OnInit {
   constructor(private dogService: DogService) {}
 
   ngOnInit() {
-    this.usersDogRes = this.dogService
-      .getUsersDog()
-      .valueChanges.pipe(tap(console.log));
+    this.usersDogRes = this.dogService.getUsersDog().valueChanges;
   }
 
   hide() {

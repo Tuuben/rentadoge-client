@@ -1,9 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
-import { first, map } from "rxjs/operators";
+import { Component, Input, OnInit } from "@angular/core";
 import { BookingService } from "src/app/core/booking.service";
-import { UserService } from "./../../core/user.service";
-
-type ButtonStatus = BookingStatus | "user-already-booked";
 
 @Component({
   selector: "app-booking-button",
@@ -12,65 +8,28 @@ type ButtonStatus = BookingStatus | "user-already-booked";
 })
 export class BookingButtonComponent implements OnInit {
   @Input() dog: Dog;
-  @Output() unbooked = new EventEmitter();
 
-  buttonStatus: ButtonStatus;
+  // bookingState: BookingState;
   loading: boolean;
+  bookingState: string;
 
-  constructor(
-    private bookingService: BookingService,
-    private userService: UserService
-  ) {}
+  constructor(private bookingService: BookingService) {}
 
-  ngOnInit() {
-    this.loading = true;
-    this.userService
-      .getUser()
-      .pipe(
-        first(),
-        map(res => {
-          this.loading = false;
-          if (this.hasBookedAnotherDog(res)) {
-            this.buttonStatus = "user-already-booked";
-          } else {
-            this.buttonStatus = (this.dog && this.dog.bookingStatus) || "open";
-          }
-        })
-      )
-      .toPromise();
-  }
+  ngOnInit() {}
 
   returnDog() {
-    const { id } = this.dog;
+    const { id: dogId } = this.dog;
     this.loading = true;
-    this.bookingService.endBooking(id).then(res => {
-      if (res) {
-        this.buttonStatus = "open";
-        this.unbooked.emit();
-      }
+    this.bookingService.endBooking(dogId).then(_ => {
       this.loading = false;
     });
   }
 
   bookDog() {
-    const { id } = this.dog;
+    const { id: dogId } = this.dog;
     this.loading = true;
-    this.bookingService.bookDog(id).then(res => {
-      if (res && res.data && !!res.data.booking) {
-        this.buttonStatus = "user-booked";
-      }
-
+    this.bookingService.bookDog(dogId).then(_ => {
       this.loading = false;
     });
-  }
-
-  hasBookedAnotherDog(res) {
-    if (!res && !res.data) {
-      return false;
-    }
-
-    const { user } = res.data;
-
-    return user.bookedDog && user.bookedDog.id !== this.dog.id;
   }
 }

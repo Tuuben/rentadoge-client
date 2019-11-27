@@ -1,4 +1,10 @@
-type BookingStatus = "booked" | "open" | "user-booked" | "pending-return";
+type BookingState =
+  | "available"
+  | "unavailable"
+  | "pending"
+  | "return"
+  | "sign-in"
+  | "other-booking";
 
 interface Dog {
   id: string;
@@ -9,7 +15,7 @@ interface Dog {
   breed?: Breed;
   rating?: number;
   priceId?: string;
-  bookingStatus?: BookingStatus;
+  bookingState?: BookingState;
   streetAdress?: string;
   city?: string;
   postCode?: string;
