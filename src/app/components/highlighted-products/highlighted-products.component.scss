@@ -96,16 +96,19 @@
 
 ::-webkit-scrollbar {
   width: 20px;
+  height: 10px;
 }
 
 ::-webkit-scrollbar-track {
   border-radius: var(--border-radius);
   background: var(--background-color--accent);
+  height: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
   background: var(--button-color);
   border-radius: var(--border-radius);
+  height: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
