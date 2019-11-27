@@ -19,8 +19,4 @@ export class ProductViewComponent implements OnInit {
     this.dogId = this.route.snapshot.params.dogId;
     this.dogQueryRes = this.dogService.getDog(this.dogId).valueChanges;
   }
-
-  patDog(rating: number) {
-    this.dogService.incremenetRating(this.dogId, rating);
-  }
 }

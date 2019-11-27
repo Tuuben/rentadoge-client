@@ -1,0 +1,29 @@
+.rate__container {
+  margin: var(--spacing-m) 0;
+}
+
+.rate__title {
+  margin-bottom: 0.5rem;
+}
+
+.patinator-2000 {
+  background: 0;
+  border: 0;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  mat-icon {
+    margin-left: 0.2rem;
+    width: var(--text-m);
+    height: var(--text-m);
+    font-size: var(--text-m);
+  }
+
+  &:focus {
+    outline: 0;
+  }
+  &:hover {
+    opacity: 0.8;
+  }
+}

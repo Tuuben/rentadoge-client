@@ -32,33 +32,6 @@
   margin-top: var(--spacing-m);
 }
 
-.rate__container {
-  margin: var(--spacing-m) 0;
-}
-
-.rate__title {
-  margin-bottom: 0.5rem;
-}
-
-.patinator-2000 {
-  margin-left: 0.5rem;
-  padding: 0.8rem 1rem;
-  text-transform: uppercase;
-  font-weight: 600;
-  letter-spacing: var(--button-letter-spacing);
-  background: var(--button-color);
-  border: 0;
-  border-radius: var(--border-radius);
-  color: white;
-
-  &:focus {
-    box-shadow: var(--text-shadow);
-  }
-  &:hover {
-    opacity: 0.8;
-  }
-}
-
 @include screen-large {
   .content {
     display: flex;

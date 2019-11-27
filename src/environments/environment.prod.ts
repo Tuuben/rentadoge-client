@@ -1,5 +1,6 @@
 export const environment = {
   production: true,
+  graphql: "http://localhost:3000/graphql",
   firebase: {
     apiKey: "AIzaSyALLbbBOr4a_I0KfULHjHdRvLOZFTJeT8M",
     authDomain: "rentadoge-staging.firebaseapp.com",
