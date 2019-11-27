@@ -16,10 +16,7 @@ export class NavigationComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.authSub = this.authService
       .getUser()
-      .pipe(
-        tap(user => (this.userAuthenticated = !!user)),
-        tap(console.log)
-      )
+      .pipe(tap(user => (this.userAuthenticated = !!user)))
       .subscribe();
   }
 
