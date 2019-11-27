@@ -21,7 +21,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
   src/environments/environment.prod.ts
 ```
 
-### 3. Add your firebase credentials & graphql url
+### 3. Add your Firebase credentials & graphql url
 
 ```
   export const environment = {
