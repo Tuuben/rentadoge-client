@@ -1,1 +1,8 @@
-<p>navigation works!</p>
+<nav>
+  <div class="actions">
+    <ng-container>
+      <a *ngIf="userAuthenticated" (click)="signOut()">Sign Out</a>
+      <a *ngIf="!userAuthenticated" [routerLink]="['/', 'login']">Sign in</a>
+    </ng-container>
+  </div>
+</nav>

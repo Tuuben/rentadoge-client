@@ -1,0 +1,32 @@
+@import "media-queries";
+
+nav {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: var(--spacing-m) var(--spacing-section);
+  z-index: 50;
+}
+
+.actions {
+  margin-left: auto;
+
+  a {
+    font-weight: 600;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+@include screen-medium {
+  nav {
+    padding: var(--spacing-m);
+  }
+}

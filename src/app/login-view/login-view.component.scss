@@ -24,6 +24,11 @@ input {
 
   .button {
     margin-bottom: var(--spacing-s);
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.8;
+    }
   }
 }
 
