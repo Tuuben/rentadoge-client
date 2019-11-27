@@ -6,7 +6,7 @@
   <app-highlighted-products></app-highlighted-products>
 
   <section class="section">
-    <div class="go-to-browse">
+    <div class="go-to-browse" @fadeInCrawl>
       <h2 class="go-to-browse__title">Go to browse</h2>
       <p>Checkout all of our friends!</p>
       <a [routerLink]="['/', 'browse']" class="go-to-browse__button">

@@ -3,8 +3,6 @@
 @import "./assets/scss/variables.scss";
 @import "./assets/scss/common.scss";
 
-@import url("https://fonts.googleapis.com/css?family=Alata&display=swap");
-
 * {
   margin: 0;
   padding: 0;
@@ -18,7 +16,7 @@ h3,
 h4,
 h5 {
   margin: 0;
-  font-family: "Alata", sans-serif;
+  font-family: "Alata", sans-serif !important;
   color: var(--text-title-color);
 }
 
@@ -33,7 +31,7 @@ a:visited {
 body {
   min-height: 100vh;
   background: var(--background-color);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif !important;
 }
 
 html,

@@ -5,11 +5,11 @@
     <ng-container *ngIf="dogRes.data?.dog as dog">
       <section class="product-view__container">
         <div class="content">
-          <div class="header-image__container">
+          <div class="header-image__container" @fadeInCrawl>
             <img [src]="dog.imgURL" alt="" />
           </div>
 
-          <div class="header-info__container">
+          <div class="header-info__container" @fadeInCrawlDelay>
             <h2 class="header-info__title">{{ dog.name }}</h2>
             <p class="description">{{ dog.description }}</p>
             <div class="actions">

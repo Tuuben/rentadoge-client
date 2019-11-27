@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "hosting:dev": "ng build --prod && firebase use default && firebase deploy --only hosting",
+    "hosting": "ng build --prod && firebase use default && firebase deploy --only hosting",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

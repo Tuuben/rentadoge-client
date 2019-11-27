@@ -9,13 +9,15 @@ import {
 import { ApolloQueryResult } from "apollo-client";
 import { Observable, Subscription } from "rxjs";
 import { tap } from "rxjs/operators";
+import { fadeInAnimation } from "src/app/core/animations/fade-in.animation";
 import { DogService } from "src/app/core/dog.service";
 import { DomService } from "src/app/core/dom.service";
 
 @Component({
   selector: "app-about-products",
   templateUrl: "./about-products.component.html",
-  styleUrls: ["./about-products.component.scss"]
+  styleUrls: ["./about-products.component.scss"],
+  animations: [fadeInAnimation]
 })
 export class AboutProductsComponent
   implements OnInit, AfterViewInit, OnDestroy {

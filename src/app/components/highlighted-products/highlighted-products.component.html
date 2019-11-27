@@ -7,10 +7,11 @@
         class="highlight__carousel-item"
         *ngFor="let dog of dogsRes.data?.dogs"
         [routerLink]="['/', 'product', dog.id]"
+        @fadeIn
       >
         <div class="item__rating">
           <span>{{ dog.rating }}</span>
-          <mat-icon>star</mat-icon>
+          <mat-icon>pets</mat-icon>
         </div>
         <app-image [xOffset]="xOffset" [src]="dog.imgURL"></app-image>
         <h3 class="item__name">{{ dog.name }}</h3>

@@ -2,12 +2,17 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { ApolloQueryResult } from "apollo-client";
 import { Observable } from "rxjs";
+import {
+  fadeInCrawlAnimation,
+  fadeInCrawlDelayAnimation
+} from "../core/animations/fade-in.animation";
 import { DogService } from "../core/dog.service";
 
 @Component({
   selector: "app-about-view",
   templateUrl: "./about-view.component.html",
-  styleUrls: ["./about-view.component.scss"]
+  styleUrls: ["./about-view.component.scss"],
+  animations: [fadeInCrawlAnimation, fadeInCrawlDelayAnimation]
 })
 export class AboutViewComponent implements OnInit {
   breedQueryRes: Observable<ApolloQueryResult<{ breed: Breed }>>;

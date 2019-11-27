@@ -6,6 +6,7 @@
         [routerLink]="['/', 'about', breed.id]"
         class="breed-carousel__container-item"
         *ngFor="let breed of breedsRes.data?.breeds"
+        @fadeIn
       >
         <!-- <img [src]="breed.imgURL" class="container-item__image" alt="" /> -->
         <app-image

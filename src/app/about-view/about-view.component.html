@@ -4,10 +4,10 @@
     <ng-container *ngIf="breedRes.data?.breed as breed">
       <section class="section">
         <div class="container">
-          <div class="image-container">
+          <div class="image-container" @fadeInCrawl>
             <img [src]="breed.imgURL" alt="" />
           </div>
-          <div class="content">
+          <div class="content" @fadeInCrawlDelay>
             <h1 class="title-2xl">{{ breed.name }}</h1>
             <p class="description">{{ breed.description }}</p>
           </div>
