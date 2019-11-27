@@ -10,6 +10,7 @@
   color: var(--text-white);
   transition: background 0.4s;
   white-space: nowrap;
+  display: inline-block !important;
   cursor: pointer;
 
   &:focus {
