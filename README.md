@@ -6,24 +6,22 @@ A totally legitimate dog renting application, I swear.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.2.
 
-## How to run locally
+# How to run
 
-# The usual
-
-1. Install dependencies
+### 1. Install dependencies
 
 ```
   npm install
 ```
 
-2. Create environment files
+### 2. Create environment files
 
 ```
   src/environment/environment.ts
   src/environment/environment.prod.ts
 ```
 
-3. Add your firebase credentials & graphql url
+### 3. Add your firebase credentials & graphql url
 
 ```
   export const environment = {
@@ -41,7 +39,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 };
 ```
 
-4. Run it baby.
+### 4. Run it baby.
 
 ```
   npm run start
