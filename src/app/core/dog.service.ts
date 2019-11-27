@@ -10,11 +10,12 @@ export class DogService {
     return this.apollo.watchQuery<{ dogs: Dog[] }>({
       query: gql`
         query DogsQuery {
-          dogs {
+          dogs: topRatedDogs {
             id
             name
             imgURL
             description
+            rating
           }
         }
       `,
@@ -84,6 +85,7 @@ export class DogService {
             name
             imgURL
             description
+            rating
             bookingStatus
           }
         }
@@ -107,5 +109,29 @@ export class DogService {
       `,
       fetchPolicy: "cache-and-network"
     });
+  }
+
+  incremenetRating(dogId: string, rating?: number) {
+    return this.apollo
+      .mutate<{ dog: Dog }>({
+        mutation: gql`
+          mutation IncrementRatingMutation($dogId: String!) {
+            incrementRating(dogId: $dogId) {
+              id
+              rating
+            }
+          }
+        `,
+        optimisticResponse: {
+          __typename: "Mutation",
+          incrementRating: {
+            __typename: "Dog",
+            id: dogId,
+            rating: rating + 1
+          }
+        },
+        variables: { dogId }
+      })
+      .toPromise();
   }
 }

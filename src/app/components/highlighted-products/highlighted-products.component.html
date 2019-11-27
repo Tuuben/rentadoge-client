@@ -8,7 +8,10 @@
         *ngFor="let dog of dogsRes.data?.dogs"
         [routerLink]="['/', 'product', dog.id]"
       >
-        <div class="item__rating">Rating {{ dog.rating }}</div>
+        <div class="item__rating">
+          <span>{{ dog.rating }}</span>
+          <mat-icon>star</mat-icon>
+        </div>
         <app-image [xOffset]="xOffset" [src]="dog.imgURL"></app-image>
         <h3 class="item__name">{{ dog.name }}</h3>
       </a>

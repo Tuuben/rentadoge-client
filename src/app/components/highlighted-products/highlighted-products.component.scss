@@ -31,11 +31,23 @@
 
   .item__rating {
     position: absolute;
-    top: 12px;
-    right: 12px;
+    bottom: 1.2rem;
+    right: 1rem;
     z-index: 500;
     text-shadow: var(--text-shadow);
     font-weight: 600;
+    display: flex;
+    align-items: flex-end;
+    color: var(--text-white);
+    z-index: 15;
+
+    span {
+      color: var(--text-white);
+      margin-right: 0.25rem;
+    }
+    mat-icon {
+      color: #47ffe3;
+    }
     //color: var(--text-white);
   }
 
@@ -52,7 +64,7 @@
     padding: var(--spacing-s);
     font-weight: 600;
     color: var(--text-white);
-    z-index: 500;
+    z-index: 10;
     text-shadow: var(--text-shadow);
     font-size: var(--text-m);
   }

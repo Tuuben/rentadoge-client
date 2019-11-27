@@ -20,5 +20,7 @@ export class ProductViewComponent implements OnInit {
     this.dogQueryRes = this.dogService.getDog(this.dogId).valueChanges;
   }
 
-  reserveDog() {}
+  patDog(rating: number) {
+    this.dogService.incremenetRating(this.dogId, rating);
+  }
 }
