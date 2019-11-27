@@ -1,27 +1,52 @@
-# Rentadoge
+# Rent a doge!
+
+A totally legitimate dog renting application, I swear.
+
+![alt text](https://media.giphy.com/media/HCTfYH2Xk5yw/giphy.gif)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.2.
 
-## Development server
+## How to run locally
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+# The usual
 
-## Code scaffolding
+1. Install dependencies
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```
+  npm install
+```
 
-## Build
+2. Create environment files
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+```
+  src/environment/environment.ts
+  src/environment/environment.prod.ts
+```
 
-## Running unit tests
+3. Add your firebase credentials & graphql url
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```
+  export const environment = {
+  production: false,
+  graphql: "http://localhost:3000/graphql",
+  firebase: {
+    apiKey: "<YOUR API KEY>",
+    authDomain: "< YOUR AUTH DOMAIN >",
+    databaseURL: "< YOUR DATABASE URL >",
+    projectId: "< YOUR PROJECT ID >",
+    storageBucket: "< YOUR STORAGE BUCKET >",
+    messagingSenderId: "< YOUR MESSAGING SENDER ID >",
+    appId: "< YOUR APP ID >"
+  }
+};
+```
 
-## Running end-to-end tests
+4. Run it baby.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+```
+  npm run start
+```
 
 ## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Figure it out.
