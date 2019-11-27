@@ -17,8 +17,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ### 2. Create environment files
 
 ```
-  src/environment/environment.ts
-  src/environment/environment.prod.ts
+  src/environments/environment.ts
+  src/environments/environment.prod.ts
 ```
 
 ### 3. Add your firebase credentials & graphql url
@@ -45,6 +45,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
   npm run start
 ```
 
-## Further help
+# Further help
 
 Figure it out.
