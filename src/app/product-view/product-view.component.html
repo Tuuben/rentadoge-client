@@ -14,10 +14,12 @@
             <p class="description">{{ dog.description }}</p>
             <div class="actions">
               <app-booking-button [dog]="dog"></app-booking-button>
-              <app-rate-button
-                [dogId]="dog.id"
-                [currentRating]="dog.rating"
-              ></app-rate-button>
+              <div class="rate__container">
+                <app-rate-button
+                  [dogId]="dog.id"
+                  [currentRating]="dog.rating"
+                ></app-rate-button>
+              </div>
             </div>
           </div>
         </div>

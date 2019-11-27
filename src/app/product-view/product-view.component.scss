@@ -32,6 +32,10 @@
   margin-top: var(--spacing-m);
 }
 
+.rate__container {
+  margin-top: var(--spacing-m);
+}
+
 @include screen-large {
   .content {
     display: flex;
@@ -57,5 +61,9 @@
 
   .product-view__container {
     margin: var(--spacing-section) 0;
+  }
+
+  .rate__container {
+    margin: 0;
   }
 }
