@@ -2,7 +2,8 @@
   <h2 class="about__title">Get to know us better.</h2>
   <div #carousel class="breed-carousel__container">
     <ng-container *ngIf="breedsQueryRes | async as breedsRes">
-      <div
+      <a
+        [routerLink]="['/', 'about', breed.id]"
         class="breed-carousel__container-item"
         *ngFor="let breed of breedsRes.data?.breeds"
       >
@@ -12,19 +13,16 @@
           [src]="breed.imgURL"
           class="container-item__image"
         ></app-image>
-        <a
-          [routerLink]="['/', 'about', breed.id]"
-          class="container-item__content"
-        >
+        <div class="container-item__content">
           <h2 class="container-item__title">
             {{ breed.name }}
           </h2>
           <p class="container-item__description">
             {{ breed.description | textLength: 220 }}
           </p>
-          <p>Read more</p>
-        </a>
-      </div>
+          <p class="read-more">Read more</p>
+        </div>
+      </a>
 
       <ng-container *ngIf="breedsRes.loading">
         <div

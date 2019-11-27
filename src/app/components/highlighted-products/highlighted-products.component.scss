@@ -20,6 +20,7 @@
   border-radius: var(--border-radius);
   scroll-snap-align: end;
   position: relative;
+  transition: opacity 0.2s;
 
   &:not(:last-child) {
     margin-right: var(--spacing-s);
@@ -46,7 +47,7 @@
       margin-right: 0.25rem;
     }
     mat-icon {
-      color: #47ffe3;
+      color: var(--highlight-color);
     }
     //color: var(--text-white);
   }
